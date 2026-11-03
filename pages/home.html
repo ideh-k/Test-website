@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caacupe+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  #pages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(max(220px, 25%), 1fr));
+  }
+
+  #pages .spacingcards,
+  #pages .card {
+    width: auto;
+  }
+
+  #pages .card {
+    display: block;
+  }
+
+  #pages .card > div {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+  }
+</style>
+</head>
+<body>
+    <nav>
+    <a class="navigation" href="../index.html">Home</a>
+    <a class="navigation" href="about.html">About</a>
+    <a  class="navigation" href="#pages">Pages</a>
+  </nav>
+        <div class="hero">
+            <h1>Your Name</h1>
+            <p>Web Design | Homepage</p>
+            <a class="button-hero" href=#pages>My Pages</a>
+        </div>
+  
+  <div id="pages" style="background-color: #000000;">
+    <div class="spacingcards" >
+  <a class="card" href="diamond.html" >
+    <div class="innercard1">
+</div>
+    <h2>Diamond Sword</h2>
+  </a>
+      </div>
+    
+    <div class="spacingcards">
+  <a class="card" href="spongebob.html">
+    <div class="innercard3">
+    </div>
+    <h2>Sponge Bob Page</h2>
+  </a>
+    </div>
+
+        <div class="spacingcards">
+  <a class="card" href="favorites.html">
+    <div class="innercard2">
+    </div>
+    <h2>Favorites</h2>
+  </a>
+        </div>
+    
+    <div class="spacingcards">
+  <a class="card" href="color-study.html">
+   <div class="innercard5">
+    </div>
+    <h2>Color Study</h2>
+  </a>
+    </div>
+    
+    <div class="spacingcards">
+  <a class="card" href="blackGoose.html">
+    <div class="innercard4">
+    </div>
+    <h2>Black Goose Bistro</h2>
+  </a>
+    </div>
+  </div>
+    <footer class="site-footer">
+    <p>&copy; 2026 Ideh Kashefi</p>
+  </footer>
+<a href="#" class="back-to-top">↑ Top</a>
+</body>
+</html>

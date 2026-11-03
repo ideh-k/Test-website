@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kinetic Words</title>
+  <style>
+
+    body {
+      margin: 0;
+      background: #000000;
+      color: white;
+      font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    section {
+      padding: 12vw 20px 5vw 20px;
+    }
+
+    .word {
+      margin: 0;
+      font-size: 14vw;
+      line-height: 0.75; 
+    }
+
+
+    .word span {
+      display: inline-block;
+    }
+
+    .caption {
+      margin-top: 30px;
+      font-family: Arial, sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #888888;
+    }
+
+
+    @keyframes bounce {
+      0%   { transform: translateY(0) scale(1.2, 0.8);  animation-timing-function: ease-in; }
+      10%  { transform: translateY(0) scale(1, 1);      animation-timing-function: cubic-bezier(0.33, 0.67, 0.67, 1); }
+      50%  { transform: translateY(-0.6em) scale(1, 1); animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0.33); }
+      90%  { transform: translateY(0) scale(1, 1);      animation-timing-function: ease-out; }
+      100% { transform: translateY(0) scale(1.2, 0.8); }
+    }
+
+    .bounce span {
+      transform-origin: bottom;
+      animation: bounce 0.9s infinite;
+    }
+
+    .bounce span:nth-child(2) { animation-delay: 0.1s; }
+    .bounce span:nth-child(3) { animation-delay: 0.2s; }
+    .bounce span:nth-child(4) { animation-delay: 0.3s; }
+    .bounce span:nth-child(5) { animation-delay: 0.4s; }
+    .bounce span:nth-child(6) { animation-delay: 0.5s; }
+
+
+
+    @keyframes fall {
+      0%   { transform: rotate(0deg); }
+      25%  { transform: rotate(0deg);   animation-timing-function: ease-out; }
+      35%  { transform: rotate(8deg);   animation-timing-function: ease-in; }
+      55%  { transform: rotate(-90deg); animation-timing-function: ease-out; }
+      62%  { transform: rotate(-80deg); animation-timing-function: ease-in; }
+      68%  { transform: rotate(-90deg); }
+      92%  { transform: rotate(-90deg); animation-timing-function: ease-in-out; }
+      100% { transform: rotate(0deg); }
+    }
+
+    .fall .tip {
+      color: tomato;
+      transform-origin: bottom left;
+      animation: fall 4s infinite;
+    }
+
+
+
+    @keyframes shake {
+      0%   { transform: translateX(0) rotate(0deg); }
+      25%  { transform: translateX(-0.03em) rotate(-3deg); }
+      75%  { transform: translateX(0.03em) rotate(3deg); }
+      100% { transform: translateX(0) rotate(0deg); }
+    }
+
+    .shake:hover {
+      color: gold;
+    }
+
+    .shake:hover span {
+      animation: shake 0.15s linear infinite;
+    }
+
+    .shake:hover span:nth-child(even) {
+      animation-delay: 0.07s;
+    }
+
+  </style>
+</head>
+<body>
+
+  <section>
+    <h2 class="word bounce" aria-label="Bounce">
+      <span>B</span><span>O</span><span>U</span><span>N</span><span>C</span><span>E</span>
+    </h2>
+    <p class="caption">Bouncing</p>
+  </section>
+
+  <section>
+    <h2 class="word fall" aria-label="Fall">
+      <span class="tip">F</span><span>A</span><span>L</span><span>L</span>
+    </h2>
+    <p class="caption">Rotating</p>
+  </section>
+
+  <section>
+    <h2 class="word shake" aria-label="Shake">
+      <span>S</span><span>H</span><span>A</span><span>K</span><span>E</span>
+    </h2>
+    <p class="caption">Shaking (hover)</p>
+  </section>
+
+</body>
+</html>

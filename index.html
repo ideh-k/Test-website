@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARS 332 Fall 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            padding: 50px 30px 70px;
+            font-family: 'Fredoka One', cursive;
+
+            /* Dark brick wall */
+            background-color: #1e0e06;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    transparent 38px,
+                    rgba(0,0,0,0.55) 38px,
+                    rgba(0,0,0,0.55) 43px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.02) 0px,
+                    rgba(255,255,255,0.02) 78px,
+                    rgba(0,0,0,0.55) 78px,
+                    rgba(0,0,0,0.55) 83px
+                );
+            background-size: 83px 43px;
+        }
+
+        /* Overlay to darken wall further and add depth */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: #fff;
+            letter-spacing: 3px;
+            text-shadow:
+                0 0 7px #fff,
+                0 0 15px #fff,
+                0 0 30px #ff2d78,
+                0 0 60px #ff2d78,
+                0 0 90px #ff2d78;
+            animation: title-pulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes title-pulse {
+            0%   { text-shadow: 0 0 7px #fff, 0 0 15px #fff, 0 0 30px #ff2d78, 0 0 60px #ff2d78; }
+            100% { text-shadow: 0 0 10px #fff, 0 0 25px #fff, 0 0 50px #ff2d78, 0 0 100px #ff2d78; }
+        }
+
+        .subtitle {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.4);
+            font-family: sans-serif;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Signs grid */
+        .signs-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Individual sign */
+        .sign {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .sign:hover { transform: scale(1.05); }
+
+        /* Mounting screws on top */
+        .sign::before,
+        .sign::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #666;
+            border-radius: 50%;
+            position: absolute;
+            top: -14px;
+            box-shadow: 0 0 3px rgba(0,0,0,0.8), inset 0 0 2px rgba(255,255,255,0.2);
+        }
+        .sign::before { left: 20px; }
+        .sign::after  { right: 20px; }
+
+        .sign-box {
+            border: 3px solid;
+            border-radius: 10px;
+            padding: 16px 36px;
+            position: relative;
+        }
+
+        .sign-name {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            white-space: nowrap;
+            display: block;
+        }
+
+        /* Hover flicker */
+        .sign:hover .sign-name {
+            animation: flicker 0.15s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%   { opacity: 1; }
+            50%  { opacity: 0.85; }
+            100% { opacity: 1; }
+        }
+
+        /* ── Neon color themes ────────────────────────────── */
+
+        /* Pink */
+        .pink .sign-box {
+            border-color: #ff2d78;
+            box-shadow: 0 0 8px #ff2d78, 0 0 20px #ff2d78, 0 0 40px #ff2d78,
+                        inset 0 0 12px rgba(255,45,120,0.08);
+        }
+        .pink .sign-name {
+            color: #ff2d78;
+            text-shadow: 0 0 6px #ff2d78, 0 0 18px #ff2d78, 0 0 40px #ff2d78;
+        }
+
+        /* Cyan */
+        .cyan .sign-box {
+            border-color: #00e5ff;
+            box-shadow: 0 0 8px #00e5ff, 0 0 20px #00e5ff, 0 0 40px #00e5ff,
+                        inset 0 0 12px rgba(0,229,255,0.08);
+        }
+        .cyan .sign-name {
+            color: #00e5ff;
+            text-shadow: 0 0 6px #00e5ff, 0 0 18px #00e5ff, 0 0 40px #00e5ff;
+        }
+
+        /* Yellow */
+        .yellow .sign-box {
+            border-color: #ffe600;
+            box-shadow: 0 0 8px #ffe600, 0 0 20px #ffe600, 0 0 40px #ffe600,
+                        inset 0 0 12px rgba(255,230,0,0.08);
+        }
+        .yellow .sign-name {
+            color: #ffe600;
+            text-shadow: 0 0 6px #ffe600, 0 0 18px #ffe600, 0 0 40px #ffe600;
+        }
+
+        /* Green */
+        .green .sign-box {
+            border-color: #39ff14;
+            box-shadow: 0 0 8px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14,
+                        inset 0 0 12px rgba(57,255,20,0.08);
+        }
+        .green .sign-name {
+            color: #39ff14;
+            text-shadow: 0 0 6px #39ff14, 0 0 18px #39ff14, 0 0 40px #39ff14;
+        }
+
+        /* Orange */
+        .orange .sign-box {
+            border-color: #ff7700;
+            box-shadow: 0 0 8px #ff7700, 0 0 20px #ff7700, 0 0 40px #ff7700,
+                        inset 0 0 12px rgba(255,119,0,0.08);
+        }
+        .orange .sign-name {
+            color: #ff7700;
+            text-shadow: 0 0 6px #ff7700, 0 0 18px #ff7700, 0 0 40px #ff7700;
+        }
+
+        /* Purple */
+        .purple .sign-box {
+            border-color: #bf00ff;
+            box-shadow: 0 0 8px #bf00ff, 0 0 20px #bf00ff, 0 0 40px #bf00ff,
+                        inset 0 0 12px rgba(191,0,255,0.08);
+        }
+        .purple .sign-name {
+            color: #bf00ff;
+            text-shadow: 0 0 6px #bf00ff, 0 0 18px #bf00ff, 0 0 40px #bf00ff;
+        }
+
+        /* Red */
+        .red .sign-box {
+            border-color: #ff3131;
+            box-shadow: 0 0 8px #ff3131, 0 0 20px #ff3131, 0 0 40px #ff3131,
+                        inset 0 0 12px rgba(255,49,49,0.08);
+        }
+        .red .sign-name {
+            color: #ff3131;
+            text-shadow: 0 0 6px #ff3131, 0 0 18px #ff3131, 0 0 40px #ff3131;
+        }
+
+        /* Instructor sign — bigger and white */
+        .instructor .sign-box {
+            border-color: #ffffff;
+            box-shadow: 0 0 10px #fff, 0 0 25px #fff, 0 0 50px #fff,
+                        inset 0 0 15px rgba(255,255,255,0.08);
+            padding: 20px 48px;
+        }
+        .instructor .sign-name {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #ffffff;
+            text-shadow: 0 0 8px #fff, 0 0 25px #fff, 0 0 55px #fff;
+        }
+        .instructor-label {
+            font-family: sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-top: 8px;
+        }
+
+        /* Full-width row for instructor */
+        .instructor-row {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 70px;
+            font-family: sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.15);
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="page-title">ARS 332</h1>
+        <p class="subtitle">Web Design &nbsp;·&nbsp; Fall 2026</p>
+    </header>
+
+    <!-- Students -->
+    <div class="signs-grid">
+
+        <a class="sign pink"   href="https://webpages.uah.edu/~pfa0002/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Paris</span></div>
+        </a>
+
+        <a class="sign cyan"   href="https://webpages.uah.edu/~wc0047/"  target="_blank">
+            <div class="sign-box"><span class="sign-name">Whitni</span></div>
+        </a>
+
+        <a class="sign yellow" href="https://webpages.uah.edu/~jdc1650/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Joshua</span></div>
+        </a>
+
+        <a class="sign green"  href="https://webpages.uah.edu/~krc1901/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Kirby</span></div>
+        </a>
+
+        <a class="sign orange" href="https://webpages.uah.edu/~yc0030/"  target="_blank">
+            <div class="sign-box"><span class="sign-name">Yairet</span></div>
+        </a>
+
+        <a class="sign purple" href="https://webpages.uah.edu/~bae0011/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Ben</span></div>
+        </a>
+
+        <a class="sign red"    href="https://webpages.uah.edu/~maf0047/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Miana</span></div>
+        </a>
+
+        <a class="sign cyan"   href="https://webpages.uah.edu/~ebh0176/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Emma</span></div>
+        </a>
+
+        <a class="sign yellow" href="https://webpages.uah.edu/~rkk0395/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Rena</span></div>
+        </a>
+
+        <a class="sign orange" href="https://webpages.uah.edu/~cmm1710/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Callum</span></div>
+        </a>
+
+        <a class="sign purple" href="https://webpages.uah.edu/~jep0047/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Jaden</span></div>
+        </a>
+
+        <a class="sign red"    href="https://webpages.uah.edu/~kr1086/"  target="_blank">
+            <div class="sign-box"><span class="sign-name">Kip</span></div>
+        </a>
+
+        <a class="sign pink"   href="https://webpages.uah.edu/~agr0019/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Allie</span></div>
+        </a>
+
+        <a class="sign yellow" href="https://webpages.uah.edu/~dr0887/"  target="_blank">
+            <div class="sign-box"><span class="sign-name">Diego</span></div>
+        </a>
+
+        <a class="sign green"  href="https://webpages.uah.edu/~st0595/"  target="_blank">
+            <div class="sign-box"><span class="sign-name">Sesugh</span></div>
+        </a>
+
+        <a class="sign orange" href="https://webpages.uah.edu/~bvw0008/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Briley</span></div>
+        </a>
+
+        <a class="sign purple" href="https://webpages.uah.edu/~clz0974/" target="_blank">
+            <div class="sign-box"><span class="sign-name">Cheyenne</span></div>
+        </a>
+
+    </div>
+
+    <footer>ARS 332 &nbsp;·&nbsp; University of Alabama in Huntsville &nbsp;·&nbsp; Fall 2026</footer>
+
+</body>
+</html>

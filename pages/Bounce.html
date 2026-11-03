@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animation Examples</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: steelblue;
+      margin: 20px;
+      transition: transform 0.3s ease;
+    }
+    .box:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes bounce {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+    .ball {
+      width: 80px;
+      height: 80px;
+      background: tomato;
+      border-radius: 50%;
+      margin: 20px;
+      animation: bounce 1s infinite;
+    }
+
+    .scene {
+      width: 120px;
+      height: 160px;
+      perspective: 800px; 
+      margin: 20px;
+    }
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+    .scene:hover .card {
+      transform: rotateY(180deg);
+    }
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+    .front {
+      background: seagreen;
+    }
+    .back {
+      background: darkorange;
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+	<div style="background-color: aliceblue">
+  <h2>Transition Example (Hover the square)</h2>
+  <div class="box" ></div>
+		</div>
+
+  <h2>Animation Example (Bouncing ball)</h2>
+  <div class="ball"></div>
+<div style="background-color: aliceblue">
+  <h2>3D Transform Example (Flip card)</h2>
+  <div class="scene">
+    <div class="card">
+      <div class="card-face front">Front</div>
+      <div class="card-face back">Back</div>
+	</div>
+    </div>
+  </div>
+</body>
+</html>

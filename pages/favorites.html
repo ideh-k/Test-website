@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jazz Favorites</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:wght@400;600&display=swap">
+<style>
+
+body {
+  background-color: #0e0c0a;
+  color: #e8dfc8;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.8;
+  padding-block: 64px;
+  padding-inline: 16px;
+}
+
+#wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Jump link at the very top */
+.jump-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  color: #c9922d;
+  border: 1px solid #c9922d;
+  padding: 6px 16px;
+  margin-bottom: 52px;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #c9922d;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e8dfc8;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #9c8f7a;
+  margin-bottom: 36px;
+}
+
+p {
+  line-height: 1.85;
+  margin-bottom: 20px;
+  max-width: 65ch;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #2e2a24;
+  margin: 44px 0;
+}
+
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #c9922d;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+}
+
+/* External link styling */
+.ext-link {
+  color: #c9922d;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #c9922d;
+  padding-bottom: 1px;
+}
+
+/* Table section */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #c9922d;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid #c9922d;
+}
+
+td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #2e2a24;
+  vertical-align: top;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.album-title {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.caption {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: #9c8f7a;
+  margin-top: 12px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+
+  <!-- Jump navigation link at the top of the page -->
+  <a href="#album-table" class="jump-link">Go to my table ↓</a>
+
+  <!-- Page header: title, subtitle, and intro paragraphs -->
+  <p class="eyebrow">My Favorites</p>
+  <h1>A Love for Jazz</h1>
+  <p class="subtitle">The music that changed how I hear everything else</p>
+
+  <p>Jazz found me at an odd moment. I was listening to Miles Davis's <em>Kind of Blue</em> and something clicked — the way the musicians leave space, the way silence becomes part of the sound. It's a music built on conversation, and once you start hearing it that way, you can't unhear it.</p>
+
+  <p>The recordings from the 1950s and 60s feel alive in a way that's hard to explain. They were mostly recorded in a single room on one or two microphones — people playing together in real time. That electricity still comes through six decades later.</p>
+
+  <a href="https://www.allaboutjazz.com" target="_blank" class="ext-link">Explore All About Jazz →</a>
+
+  <hr>
+
+  <!-- Table of essential jazz albums with artist, year, and style -->
+  <h2>Essential Albums</h2>
+
+  <table id="album-table">
+    <thead>
+      <tr>
+        <th>Album</th>
+        <th>Artist</th>
+        <th>Year</th>
+        <th>Style</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="album-title">Kind of Blue</td>
+        <td>Miles Davis</td>
+        <td>1959</td>
+        <td>Modal Jazz</td>
+      </tr>
+      <tr>
+        <td class="album-title">A Love Supreme</td>
+        <td>John Coltrane</td>
+        <td>1965</td>
+        <td>Spiritual Jazz</td>
+      </tr>
+      <tr>
+        <td class="album-title">Time Out</td>
+        <td>Dave Brubeck Quartet</td>
+        <td>1959</td>
+        <td>Cool Jazz</td>
+      </tr>
+      <tr>
+        <td class="album-title">Mingus Ah Um</td>
+        <td>Charles Mingus</td>
+        <td>1959</td>
+        <td>Hard Bop</td>
+      </tr>
+      <tr>
+        <td class="album-title">Blue Train</td>
+        <td>John Coltrane</td>
+        <td>1957</td>
+        <td>Hard Bop</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="caption">Five records worth starting with, in no particular order.</p>
+
+</div>
+
+</body>
+</html>
